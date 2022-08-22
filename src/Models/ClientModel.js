@@ -1,17 +1,5 @@
-let ClientesTable = [
-    {
-        nome : 'Bruno',
-        idade: '23'
-    },
-    {
-        nome : 'Eduardo',
-        idade: '33'
-    },
-    {
-        nome : 'Luiz Henrique',
-        idade: '29'
-    }
-]
+import { CreatePool } from "../../pool.js";
+const conexao = await CreatePool();
 
 export class Client{
     constructor(nome, idade, cpf){
@@ -20,9 +8,17 @@ export class Client{
         this._cpf = cpf
     }
 
-    SelectAll(){
-        return ClientesTable;
-    }
+    static async SelectAll(){
+        try 
+        {
+            const { recordset } = await conexao.query('select * from Cliente')
+            return recordset
+        } 
+        catch (error) 
+        {
+            return(error)
+        }  
+      }
 
     Insert(){
         ClientesTable.push({

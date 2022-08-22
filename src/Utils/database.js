@@ -3,7 +3,7 @@ export const sqlConfig = {
     port: 1433,
     user: 'sa',
     password: 'Admin2018@',
-    database: 'Aula26_04',
+    database: 'PWII',
     options: {
       enableArithAbort : true,
       encrypt: false,

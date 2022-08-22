@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import { teste_conexao } from './test_bd.js'
 import { routes } from "./routes.js";
-const port = process.env.PORT = 4000;
+const port = process.env.PORT = 3001;
 const app = express();
 
 app.use(express.json());
@@ -19,6 +19,6 @@ app.use(routes);
         {
             app.listen(port, () => {
                 console.log(`Server runnig on ${ port }`);
-            })            
+            })
         }
     })
